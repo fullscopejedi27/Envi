@@ -29,7 +29,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.envi.ml.Model;
 
 public class MainActivity extends AppCompatActivity {
-
     Button camera, dict;
     ImageView imageView;
     TextView result;
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Envi");
 
         camera = findViewById(R.id.buttonPic);
         dict = findViewById(R.id.buttonDict);

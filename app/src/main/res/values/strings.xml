@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NewEnvi</string>
+    <string name="app_name">Envi</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -19,7 +19,7 @@
 
     <!--Black-eyed Susan-->
     <string name="BlackEyedSusan">
-        \t<b>Plant Name: </b> Black-eyed Susan\n\t<b>Scientific Name: </b> Rudbeckia hirta\n\t<b>Description: Black-eyed susan is a relatively large wildflower, ranging from 30-90 cm. in height. As indicated by its name, the flower head has a prominent black or dark-brown central cone that is surrounded by rich, yellow, petal-like rays. The leaves are long, lanceolate, and rough to the touch. The stalk is robust and also coarsely textured.</b>
+        \t<b>Plant Name: </b> Black-eyed Susan\n\t<b>Scientific Name: </b> Rudbeckia hirta\n\t<b>Description:</b> Black-eyed susan is a relatively large wildflower, ranging from 30-90 cm. in height. As indicated by its name, the flower head has a prominent black or dark-brown central cone that is surrounded by rich, yellow, petal-like rays. The leaves are long, lanceolate, and rough to the touch. The stalk is robust and also coarsely textured.
     </string>
 
     <!--Marigold-->

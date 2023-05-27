@@ -25,14 +25,15 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.envi.ml.ModelV6;
+//import com.example.envi.ml.ModelV6;
+import com.example.envi.ml.Model;
 
 public class MainActivity extends AppCompatActivity {
 
     Button camera, dict;
     ImageView imageView;
     TextView result;
-    int imageSize = 64;
+    int imageSize = 32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelV6 model = ModelV6.newInstance(getApplicationContext());
+            Model model = Model.newInstance(getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, imageSize, imageSize, 3}, DataType.FLOAT32);
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelV6.Outputs outputs = model.process(inputFeature0);
+            Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();

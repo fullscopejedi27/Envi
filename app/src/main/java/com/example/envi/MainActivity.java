@@ -10,7 +10,6 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -47,31 +46,26 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.classified).setVisibility(View.GONE);
 
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, 3);
-                } else {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
-                }
+        camera.setOnClickListener(view -> {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //noinspection deprecation
+                startActivityForResult(cameraIntent, 3);
+            } else {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
             }
         });
-        dict.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                camera.setVisibility(View.GONE);
-                dict.setVisibility(View.GONE);
-                result.setVisibility(View.GONE);
-                imageView.setVisibility(View.GONE);
-                findViewById(R.id.classified).setVisibility(View.GONE);
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment firstFragment = new FirstFragment();
-                transaction.replace(R.id.container, firstFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
+        dict.setOnClickListener(view -> {
+            camera.setVisibility(View.GONE);
+            dict.setVisibility(View.GONE);
+            result.setVisibility(View.GONE);
+            imageView.setVisibility(View.GONE);
+            findViewById(R.id.classified).setVisibility(View.GONE);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment firstFragment = new FirstFragment();
+            transaction.replace(R.id.container, firstFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
     }
 
@@ -91,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
             for(int i = 0; i < imageSize; i ++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
+                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f));
+                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f));
                 }
             }
 
@@ -127,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(resultCode == RESULT_OK){
+            assert data != null;
             if(requestCode == 3){
                 Bitmap image = (Bitmap) data.getExtras().get("data");
                 int dimension = Math.min(image.getWidth(), image.getHeight());

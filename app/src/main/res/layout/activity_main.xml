@@ -11,37 +11,37 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:id="@+id/buttonPic"
-        android:text="Plant Identifier"
+        android:text="@string/plant_identifier"
         android:textAllCaps="false"
         android:layout_above="@id/buttonDict"
         android:fontFamily="sans-serif-light"
         android:textSize="21sp"
         android:textStyle="bold"
-        />
+        tools:ignore="VisualLintButtonSize" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:id="@+id/buttonDict"
-        android:text="Dictionary"
+        android:text="@string/dictionary"
         android:textAllCaps="false"
         android:layout_alignParentBottom="true"
         android:fontFamily="sans-serif-light"
         android:textSize="21sp"
         android:textStyle="bold"
-        />
+        tools:ignore="VisualLintButtonSize" />
     <ImageView
         android:layout_width="370sp"
         android:layout_height="370sp"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView"
         android:layout_marginTop="10sp"
-        />
+        android:contentDescription="@string/picture" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="You found a:"
+        android:text="@string/you_found_a"
         android:textStyle="bold"
         android:textSize="20sp"
         android:id="@+id/classified"

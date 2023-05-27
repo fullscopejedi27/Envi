@@ -8,7 +8,6 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 public class FirstFragment extends Fragment {
     @Override
@@ -18,12 +17,9 @@ public class FirstFragment extends Fragment {
     ) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         Button btnMain = view.findViewById(R.id.button_first);
-        btnMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
+        btnMain.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
         });
         return view;
     }

@@ -14,18 +14,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
+import android.os.Handler;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
-
+import android.graphics.Paint;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;import androidx.fragment.app.Fragment;
+import java.nio.ByteOrder;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 //import com.example.envi.ml.ModelV6;
 import com.example.envi.ml.Model;
+
 
 public class MainActivity extends AppCompatActivity {
     Button camera, dict;
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         camera = findViewById(R.id.buttonPic);
         dict = findViewById(R.id.buttonDict);
-
         result = findViewById(R.id.result);
         imageView = findViewById(R.id.imageView);
 
         findViewById(R.id.classified).setVisibility(View.GONE);
+        result.setVisibility(View.GONE);
 
         camera.setOnClickListener(view -> {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -109,8 +110,26 @@ public class MainActivity extends AppCompatActivity {
             }
             String[] classes = {"Astilbe", "Bellflower", "Black-eyed susan", "Calendula", "California poppy", "Carnation", "Daisy", "Coreopsis", "Daffodil", "Dandelion", "Iris" , "Magnolia", "Rose", "Sunflower", "Tulip", "Water lily"};
             findViewById(R.id.classified).setVisibility(View.VISIBLE);
+            result.setVisibility(View.VISIBLE);
+            result.setPaintFlags(result.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             result.setText(classes[maxPos]);
-
+            result.setOnClickListener(v -> {
+                camera.setVisibility(View.GONE);
+                dict.setVisibility(View.GONE);
+                result.setVisibility(View.GONE);
+                imageView.setVisibility(View.GONE);
+                findViewById(R.id.classified).setVisibility(View.GONE);
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.container, new FirstFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+                new Handler().post(() -> {
+                    FirstFragment frag = FirstFragment.getInstance();
+                    if (frag != null) {
+                        frag.scrollToPlantEntry(result.getText().toString());
+                    }
+                });
+            });
             // Releases model resources if no longer used.
             model.close();
         } catch (IOException e) {

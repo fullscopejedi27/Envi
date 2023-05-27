@@ -19,55 +19,157 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintVertical_bias="0.5"
+            android:fontFamily="sans-serif-light"/>
         <TextView
             android:id="@+id/textview_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="@string/Daisy"
+            android:text="@string/Astilbe"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first"/>
-
+            app:layout_constraintTop_toBottomOf="@id/button_first"
+            android:fontFamily="sans-serif-light"/>
         <TextView
             android:id="@+id/textview_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/Dandelion"
+            android:text="@string/Bellflower"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_first"
+            android:fontFamily="sans-serif-light"
             />
         <TextView
             android:id="@+id/textview_third"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/Rose"
+            android:text="@string/BlackEyedSusan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_second"
+            android:fontFamily="sans-serif-light"
             />
         <TextView
             android:id="@+id/textview_fourth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/Sunflower"
-
+            android:text="@string/Marigold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_third"
+            android:fontFamily="sans-serif-light"
             />
-
         <TextView
             android:id="@+id/textview_fifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CaliforniaPoppy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_fourth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_sixth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Carnation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_fifth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_seventh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Daisy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_sixth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_eighth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Tickseed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_seventh"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_ninth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Daffodil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_eighth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_tenth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Dandelion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_ninth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_eleventh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Iris"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_tenth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_twelfth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Magnolia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_eleventh"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_thirteenth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Rose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_twelfth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_fourteenth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Sunflower"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_thirteenth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_fifteenth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Tulip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_fourth"/>
+            app:layout_constraintTop_toBottomOf="@id/textview_fourteenth"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:id="@+id/textview_sixteenth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WaterLily"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_fifteenth"
+            android:fontFamily="sans-serif-light"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

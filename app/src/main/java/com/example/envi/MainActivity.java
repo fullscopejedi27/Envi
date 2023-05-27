@@ -38,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Envi");
 
         camera = findViewById(R.id.buttonPic);
         dict = findViewById(R.id.buttonDict);
 
         result = findViewById(R.id.result);
         imageView = findViewById(R.id.imageView);
+
+        findViewById(R.id.classified).setVisibility(View.GONE);
 
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             String[] classes = {"Astilbe", "Bellflower", "Black-eyed susan", "Calendula", "California poppy", "Carnation", "Daisy", "Coreopsis", "Daffodil", "Dandelion", "Iris" , "Magnolia", "Rose", "Sunflower", "Tulip", "Water lily"};
+            findViewById(R.id.classified).setVisibility(View.VISIBLE);
             result.setText(classes[maxPos]);
 
             // Releases model resources if no longer used.

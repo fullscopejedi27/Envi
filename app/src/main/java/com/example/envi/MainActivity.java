@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             result.setVisibility(View.GONE);
             imageView.setVisibility(View.GONE);
             findViewById(R.id.classified).setVisibility(View.GONE);
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in, R.anim.fade_out);
             Fragment firstFragment = new FirstFragment();
             transaction.replace(R.id.container, firstFragment);
             transaction.addToBackStack(null);

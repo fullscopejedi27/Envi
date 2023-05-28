@@ -83,7 +83,7 @@ public class FirstFragment extends Fragment {
         if (scrollView != null && targetTextView != null) {
             scrollView.post(() -> {
                 int scrollToY = targetTextView.getTop();
-                scrollView.scrollTo(0, scrollToY);
+                scrollView.smoothScrollTo(0, scrollToY);
             });
         }
     }

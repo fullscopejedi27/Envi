@@ -48,26 +48,26 @@ public class MainActivity extends AppCompatActivity {
         result.setVisibility(View.GONE);
 
         camera.setOnClickListener(view -> {
-            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //noinspection deprecation
-                startActivityForResult(cameraIntent, 3);
-            } else {
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
-            }
-        });
+        if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            //noinspection deprecation
+            startActivityForResult(cameraIntent, 3);
+        } else {
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+        }
+    });
         dict.setOnClickListener(view -> {
-            camera.setVisibility(View.GONE);
-            dict.setVisibility(View.GONE);
-            result.setVisibility(View.GONE);
-            imageView.setVisibility(View.GONE);
-            findViewById(R.id.classified).setVisibility(View.GONE);
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            Fragment firstFragment = new FirstFragment();
-            transaction.replace(R.id.container, firstFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        });
+        camera.setVisibility(View.GONE);
+        dict.setVisibility(View.GONE);
+        result.setVisibility(View.GONE);
+        imageView.setVisibility(View.GONE);
+        findViewById(R.id.classified).setVisibility(View.GONE);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Fragment firstFragment = new FirstFragment();
+        transaction.replace(R.id.container, firstFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    });
     }
 
     public void classifyImage(Bitmap image){
@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
             //iterate over each pixel and extract R, G, and B values. Add those values individually to the byte buffer.
             for(int i = 0; i < imageSize; i ++){
                 for(int j = 0; j < imageSize; j++){
-                    int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f));
-                }
+                int val = intValues[pixel++]; // RGB
+                byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f));
+                byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f));
+                byteBuffer.putFloat((val & 0xFF) * (1.f));
+            }
             }
 
             inputFeature0.loadBuffer(byteBuffer);
@@ -124,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
                 transaction.addToBackStack(null);
                 transaction.commit();
                 new Handler().post(() -> {
-                    FirstFragment frag = FirstFragment.getInstance();
-                    if (frag != null) {
-                        frag.scrollToPlantEntry(result.getText().toString());
-                    }
-                });
+                FirstFragment frag = FirstFragment.getInstance();
+                if (frag != null) {
+                    frag.scrollToPlantEntry(result.getText().toString());
+                }
+            });
             });
             // Releases model resources if no longer used.
             model.close();

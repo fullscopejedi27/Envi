@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
@@ -91,11 +93,12 @@ public class FirstFragment extends Fragment {
     public void scrollToPlantEntry(final String plantName) {
         NestedScrollView scrollView = requireView().findViewById(R.id.dict);
         TextView targetTextView = requireView().findViewById(getViewIdFromPlantName(plantName));
-
+        Animation animBlink = AnimationUtils.loadAnimation(getContext(), R.anim.blink);
         if (scrollView != null && targetTextView != null) {
             scrollView.post(() -> {
                 int scrollToY = targetTextView.getTop();
                 scrollView.smoothScrollTo(0, scrollToY);
+                targetTextView.startAnimation(animBlink);
             });
         }
     }

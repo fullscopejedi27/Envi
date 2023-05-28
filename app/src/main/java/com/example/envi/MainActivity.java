@@ -48,25 +48,25 @@ public class MainActivity extends AppCompatActivity {
         result.setVisibility(View.GONE);
 
         camera.setOnClickListener(view -> {
-        if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            //noinspection deprecation
-            startActivityForResult(cameraIntent, 3);
-        } else {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
-        }
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //noinspection deprecation
+                startActivityForResult(cameraIntent, 3);
+            } else {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+            }
     });
         dict.setOnClickListener(view -> {
-        camera.setVisibility(View.GONE);
-        dict.setVisibility(View.GONE);
-        result.setVisibility(View.GONE);
-        imageView.setVisibility(View.GONE);
-        findViewById(R.id.classified).setVisibility(View.GONE);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        Fragment firstFragment = new FirstFragment();
-        transaction.replace(R.id.container, firstFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+            camera.setVisibility(View.GONE);
+            dict.setVisibility(View.GONE);
+            result.setVisibility(View.GONE);
+            imageView.setVisibility(View.GONE);
+            findViewById(R.id.classified).setVisibility(View.GONE);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment firstFragment = new FirstFragment();
+            transaction.replace(R.id.container, firstFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
     });
     }
 

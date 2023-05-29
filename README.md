@@ -5,7 +5,7 @@ Envi is an app targeted towards environmental enthusiasts and those who simply w
 
 ## Authors
 
-- [@fullscopejedi27](https://www.github.com/fullscopejedi27)
+- [@agarg0627](https://www.github.com/agarg0627)
 
 
 ## Demo

@@ -8,6 +8,11 @@ Envi is an app targeted towards environmental enthusiasts and those who simply w
 - [@agarg0627](https://www.github.com/agarg0627)
 
 
+## Credits
+
+Credits to Aryamaan Dash for working on the core UI of the app and Sanjay Ravishankar for the scientific research behind the app.
+
+
 ## Demo
 
 
